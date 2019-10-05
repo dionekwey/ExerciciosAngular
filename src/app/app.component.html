@@ -1,0 +1,119 @@
+<h1>Exemplo 1</h1>
+<ul>
+	<li *ngFor="let nome of nomes">
+		{{nome}}
+	</li>
+</ul>
+
+<hr>
+
+<h1>Exemplo 2</h1>
+<ul *ngFor="let nome of nomes, let i= index">
+	<li>nome da pessoa é: {{nome}}, está na posição {{i + 1}}</li>
+</ul>
+
+<hr>
+
+<h1>Exemplo 3</h1>
+<ul *ngFor="let nome of nomes, let i= index">
+	<li>nome da pessoa é: {{nome}}, está na posição {{i + 1}}</li>
+</ul>
+<p *ngIf="nomes.length == 0">Nenhum nome encontrado, usando *ngIf</p>
+<p [hidden]="nomes.length > 0">Nenhum nome encontrado, usando hidden</p>
+
+<hr>
+
+<h1>Exemplo 4</h1>
+<input #boxExemplo4 placeholder="digite um nome" (keyup)="buscarExemplo4(box.value)"/>
+
+<hr>
+
+<h1>Exemplo 5</h1>
+<ul>
+	<li *ngFor="let nomeFiltro of nomesFiltro">
+		{{nomeFiltro}}
+	</li>
+</ul>
+<input #boxExemplo5 placeholder="digite um nome" (keyup)="buscar(box.value)"/>
+
+<hr>
+
+<h1>Exemplo 6</h1>
+<p>Salario total: {{getValorTotal()}}</p>
+
+<hr>
+
+<h1>Exemplo 7</h1>
+<input #parametroid placeholder="digite um id"/>
+<button (click)="retorno = buscarId(parametroid.value)">Buscar Id</button>
+<p *ngIf="retorno != undefined">{{retorno.id}} - {{retorno.nome}}</p>
+
+<hr>
+
+<h1>Exemplo 8</h1>
+<input #percentual placeholder="digite o percentual"/>
+<button (click)="aumentarSalario(percentual.value)">Aumentar salario</button>
+
+<hr>
+
+<h1>Exemplo 9</h1>
+<p>
+  {{verificaSalario(500)?'Todo mundo ganha mais que 500':'nem todo mundo ganha mais que 500'}}
+</p>
+
+<hr>
+
+<h1>Exemplo 10</h1>
+<input #criterio placeholder="digite um criterio de busca" (keyup)="resposta = buscaCampos(criterio.value)"/>
+<ul *ngFor="let r of resposta">
+  <li>{{r.id}} - {{r.nome}} - {{r.salario}}</li>
+</ul>
+
+<hr>
+
+<h1>Exemplo 11</h1>
+<p>Verifique no console</p>
+
+<hr>
+
+<h1>Exemplo 12</h1>
+<input placeholder="digite um nome" #campo>
+<button (click)="enviar(campo.value)">Enviar</button>
+<ul *ngFor="let r of nomes">
+  <li>{{r}}</li>
+</ul>
+
+<hr>
+
+<h1>Exemplo 13</h1>
+<p>Acesse o link: <a href="https://github.com/dionekwey/event.git" target="_blank">https://github.com/dionekwey/event.git</a></p>
+
+<hr>
+
+<h1>Exemplo 14</h1>
+<div>
+	<h1 class="text-center">{{title}}</h1>
+	<table class="table">
+		<thead>
+			<th>Id</th>
+			<th>Title</th>
+			<th>Price</th>
+			<th>Stock</th>
+		</thead>
+		<tbody>
+			<tr *ngFor="let p of products">
+				<td>{{p.id}}</td>
+				<td>{{p.title}}</td>
+				<td>{{p.price}}</td>
+				<td>{{p.stock}}</td>
+				<!--<td>
+					<app-stock-status
+					[productId]='p.id'
+					[stock]='p.stock'
+					(stockValueChange)='changeStockValue($event)'>
+					</app-stock-status>
+				</td>-->
+			</tr>
+		</tbody>
+	</table>
+</div>
